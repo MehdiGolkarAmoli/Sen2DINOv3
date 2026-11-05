@@ -79,7 +79,7 @@ These examples provide a visual assessment rather than a separate quantitative e
 Select a region on the map, choose an image date, and run Sen2DINOv3 to explore its building-detection results.
 
 <p align="center">
-  <img src="assets/demo_application.png" alt="Sen2DINOv3 demo application interface with map-based region selection and date controls" width="96%">
+  <img src="assets/Demo.png" alt="Sen2DINOv3 demo application interface with map-based region selection and date controls" width="96%">
 </p>
 
 <p align="center">
