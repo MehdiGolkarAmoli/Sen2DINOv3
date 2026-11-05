@@ -1,0 +1,1 @@
+"""Manuscript-corrected model architectures; import each model from its own module."""

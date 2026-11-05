@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.env
+.env.*
+
+# Research datasets, outputs, and model weights
+checkpoints/
+outputs/
+runs/
+wandb/
+lightning_logs/
+data/
+datasets/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
