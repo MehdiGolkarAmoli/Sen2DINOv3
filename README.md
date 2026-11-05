@@ -39,21 +39,36 @@ The best configuration achieves **80.37% Dice**, **67.15% IoU**, and **84.47% Re
 
 The following table reproduces **Table 3** from the article. Dice, IoU, and Recall are reported in percent; trainable parameters are reported in millions.
 
-| Model | Dice (%) | IoU (%) | Recall (%) | Trainable params (M) |
-|---|---:|---:|---:|---:|
-| U-Net++ | 77.05 | 64.29 | 80.02 | 49 |
-| DeepLabv3 | 51.41 | 35.02 | 51.99 | 40 |
-| DeepLabv3+ | 61.48 | 44.59 | 62.38 | 27 |
-| PSPNet | 74.76 | 59.68 | 80.24 | 25 |
-| SegFormer | 72.65 | 57.35 | 80.46 | 25 |
-| Mask2Former | 72.49 | 56.88 | 80.20 | 216 |
-| MAE-SSL4EO | 70.11 | 54.12 | 70.28 | 10 |
-| MAE-SSL4EO-LoRA | 73.05 | 57.58 | 77.60 | 12 |
-| Panopticon-LoRA | 77.72 | 63.54 | 82.04 | 10 |
-| DOFA-LoRA | 77.31 | 63.02 | 81.39 | 14 |
-| DINOv3-Frozen | 62.08 | 45.13 | 65.98 | 10 |
-| DINOv3-LoRA | 75.12 | 60.16 | 80.27 | 14 |
-| **Sen2DINOv3 (ours)** | **80.37** | **67.15** | **84.47** | **14** |
+<div align="center">
+
+<table>
+  <thead>
+    <tr>
+      <th align="center">Model</th>
+      <th align="center">Dice (%)</th>
+      <th align="center">IoU (%)</th>
+      <th align="center">Recall (%)</th>
+      <th align="center">Trainable params (M)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td align="center">U-Net++</td><td align="center">77.05</td><td align="center">64.29</td><td align="center">80.02</td><td align="center">49</td></tr>
+    <tr><td align="center">DeepLabv3</td><td align="center">51.41</td><td align="center">35.02</td><td align="center">51.99</td><td align="center">40</td></tr>
+    <tr><td align="center">DeepLabv3+</td><td align="center">61.48</td><td align="center">44.59</td><td align="center">62.38</td><td align="center">27</td></tr>
+    <tr><td align="center">PSPNet</td><td align="center">74.76</td><td align="center">59.68</td><td align="center">80.24</td><td align="center">25</td></tr>
+    <tr><td align="center">SegFormer</td><td align="center">72.65</td><td align="center">57.35</td><td align="center">80.46</td><td align="center">25</td></tr>
+    <tr><td align="center">Mask2Former</td><td align="center">72.49</td><td align="center">56.88</td><td align="center">80.20</td><td align="center">216</td></tr>
+    <tr><td align="center">MAE-SSL4EO</td><td align="center">70.11</td><td align="center">54.12</td><td align="center">70.28</td><td align="center">10</td></tr>
+    <tr><td align="center">MAE-SSL4EO-LoRA</td><td align="center">73.05</td><td align="center">57.58</td><td align="center">77.60</td><td align="center">12</td></tr>
+    <tr><td align="center">Panopticon-LoRA</td><td align="center">77.72</td><td align="center">63.54</td><td align="center">82.04</td><td align="center">10</td></tr>
+    <tr><td align="center">DOFA-LoRA</td><td align="center">77.31</td><td align="center">63.02</td><td align="center">81.39</td><td align="center">14</td></tr>
+    <tr><td align="center">DINOv3-Frozen</td><td align="center">62.08</td><td align="center">45.13</td><td align="center">65.98</td><td align="center">10</td></tr>
+    <tr><td align="center">DINOv3-LoRA</td><td align="center">75.12</td><td align="center">60.16</td><td align="center">80.27</td><td align="center">14</td></tr>
+    <tr><td align="center"><strong>Sen2DINOv3 (ours)</strong></td><td align="center"><strong>80.37</strong></td><td align="center"><strong>67.15</strong></td><td align="center"><strong>84.47</strong></td><td align="center"><strong>14</strong></td></tr>
+  </tbody>
+</table>
+
+</div>
 
 **Best reported result:** Sen2DINOv3 achieves the highest Dice, IoU, and Recall among the listed methods. Its Dice score is 3.32 percentage points above U-Net++, with 14M rather than 49M trainable parameters.
 
