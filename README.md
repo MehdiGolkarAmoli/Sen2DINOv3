@@ -14,49 +14,28 @@
 
 <p align="center"><em>Figure 3. Global distribution and regional detail of the S12OpenBuilding dataset.</em></p>
 
-## Project summary
+## 🛰️ Project summary
 
-This repository accompanies the research article **“S12OpenBuilding: Global Building Footprint Mapping via Sen2DINOv3, a Parameter-Efficient Adaptation of DINOv3 to Sentinel-2 Imagery.”** It presents a dataset and a deep-learning framework for detecting building footprints directly from medium-resolution Sentinel-2 satellite images.
+Sen2DINOv3 detects building footprints globally from 10 m Sentinel-2 imagery by adapting the DINOv3 satellite vision encoder to multispectral inputs.  
+This repository accompanies the S12OpenBuilding dataset and presents the model, evaluation results, and interactive demo.
 
-The work addresses two closely related challenges: the lack of geographically diverse building labels designed for Sentinel-2, and the difficulty of transferring large vision foundation models from RGB imagery to multispectral satellite data.
+## 🗺️ S12OpenBuilding dataset
 
-### Main contributions
+S12OpenBuilding contains **111,709** patches from **1,492 regions across four continents**, each with 224 × 224 pixels and 12 Sentinel-2 bands at 10 m resolution.  
+Building masks are derived from confidence-filtered **Google Open Buildings V3** footprints and aligned to the Sentinel-2 grid; the article uses a region-level 80:20 train/test split.
 
-- **S12OpenBuilding dataset:** 111,709 image patches from 1,492 geographic regions across four continents, with corresponding building masks aligned to the Sentinel-2 10 m grid.
-- **Sen2DINOv3 framework:** a parameter-efficient adaptation of the DINOv3-sat493M satellite vision encoder to 12-band Sentinel-2 imagery.
-- **Global demonstration:** an interactive app that lets users explore the building-detection capability of Sen2DINOv3 in different parts of the world.
+## 🚀 Main contributions
 
-## S12OpenBuilding dataset
+- 🌍 **Global dataset:** a geographically diverse building-footprint dataset designed for Sentinel-2 imagery.
+- 🧠 **Foundation-model adaptation:** a learned multispectral input interface and parameter-efficient adaptation of DINOv3-sat493M.
+- 🛰️ **Interactive demonstration:** a web app for exploring building detection across user-selected regions and dates.
 
-S12OpenBuilding pairs Sentinel-2 Level-2A imagery with building footprints derived from **Google Open Buildings V3**. The source footprints are confidence-filtered, converted to binary masks, and downsampled to the 10 m Sentinel-2 grid.
+## 🧠 Sen2DINOv3 at a glance
 
-| Dataset property | Description |
-|---|---|
-| Image patches | **111,709** |
-| Geographic coverage | **1,492 regions**, four continents |
-| Patch dimensions | 224 × 224 pixels |
-| Input channels | 12 Sentinel-2 bands (Band 10 excluded) |
-| Spatial resolution | 10 m |
-| Labels | Binary building / non-building masks |
-| Label source | Google Open Buildings V3 |
+**12-band Sentinel-2 → learned spectral adaptation → DINOv3-sat493M with LoRA → UPerNet-based decoder → building mask.**  
+The best configuration achieves **80.37% Dice**, **67.15% IoU**, and **84.47% Recall**, with approximately **14 million trainable parameters**.
 
-The article uses a region-level 80:20 training/test partition, with no geographic region shared between the two subsets. As the original footprints are downsampled to 10 m, very small buildings may not remain represented in the resulting masks.
-
-**Upstream label source:** [Google Open Buildings V3](https://sites.research.google/gr/open-buildings/) · [Earth Engine data catalog](https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_Research_open-buildings_v3_polygons)
-
-*The links above refer to the upstream footprint source. S12OpenBuilding is the dataset introduced in the article; its download link will be added when the dataset is released.*
-
-## Sen2DINOv3 at a glance
-
-Sen2DINOv3 adapts the RGB-pretrained DINOv3-sat493M encoder to the 12-band Sentinel-2 input domain. Its main components are:
-
-1. **Learned spectral adaptation:** adaptive spectral reweighting followed by nonlinear cross-band projection maps the 12 Sentinel-2 bands to the three-channel representation expected by DINOv3.
-2. **Parameter-efficient encoder adaptation:** LoRA is applied to selected transformer projections, allowing the pretrained representation to adapt without full encoder fine-tuning.
-3. **Dense prediction:** a UPerNet-based decoder aligns selected DINOv3 token features and generates the building segmentation mask.
-
-This design combines a learned multispectral input interface with limited adaptation of the pretrained encoder. The final reported configuration uses approximately **14 million trainable parameters**.
-
-## Quantitative results
+## 📊 Quantitative results
 
 The following table reproduces **Table 3** from the article. Dice, IoU, and Recall are reported in percent; trainable parameters are reported in millions.
 
@@ -76,13 +55,14 @@ The following table reproduces **Table 3** from the article. Dice, IoU, and Reca
 | DINOv3-LoRA | 75.12 | 60.16 | 80.27 | 14 |
 | **Sen2DINOv3 (ours)** | **80.37** | **67.15** | **84.47** | **14** |
 
-**Best reported result:** Sen2DINOv3 achieves **80.37% Dice, 67.15% IoU, and 84.47% Recall**. Its Dice score is 3.32 percentage points higher than the U-Net++ baseline, while the reported number of trainable parameters is 14M compared with 49M for U-Net++.
+**Best reported result:** Sen2DINOv3 achieves the highest Dice, IoU, and Recall among the listed methods. Its Dice score is 3.32 percentage points above U-Net++, with 14M rather than 49M trainable parameters.
 
 *The manuscript reports single-run model comparisons; repeated-trial statistical analysis is not provided.*
 
-## Qualitative examples
+## 🔎 Qualitative examples
 
-Figure 17 compares Sen2DINOv3 building-mask predictions with Google Earth very-high-resolution imagery across suburban, urban, and desert/industrial environments. This is a visual comparison rather than an additional quantitative evaluation.
+Figure 17 compares Sen2DINOv3 predictions with Google Earth very-high-resolution imagery across suburban, urban, and desert/industrial settings.  
+These examples provide a visual assessment rather than a separate quantitative evaluation; limitations include small-building omissions, uncertain 10 m boundaries, and false detections over bright surfaces.
 
 <p align="center">
   <a href="assets/figure17_qualitative_results.webp">
@@ -94,23 +74,23 @@ Figure 17 compares Sen2DINOv3 building-mask predictions with Google Earth very-h
 
 <p align="center"><em>Figure 17. Detailed visual comparison of building masks generated by Sen2DINOv3 with Google Earth VHR imagery across representative suburban, urban, and desert/industrial regions.</em></p>
 
-The examples illustrate the model's ability to identify both dispersed buildings and broader urban patterns. The article also notes limitations associated with the native 10 m resolution, including mixed pixels, uncertain boundaries in dense settlements, and possible false detections over bright soil or artificial surfaces.
+## 🖥️ Demo application
 
-## Live demo
-
-Explore the interactive Sen2DINOv3 building-detection demonstration:
+Select a region on the map, choose an image date, and run Sen2DINOv3 to explore its building-detection results.
 
 <p align="center">
-  <a href="https://01a1a747-710b-3809-a63e-588361d71177.share.connect.posit.cloud/"><strong>Launch the Sen2DINOv3 Demo</strong></a>
+  <img src="assets/demo_application.png" alt="Sen2DINOv3 demo application interface with map-based region selection and date controls" width="96%">
 </p>
 
-The demo provides an interactive showcase of the model's building-detection capability over different geographic areas.
+<p align="center">
+  <a href="https://01a1a747-710b-3809-a63e-588361d71177.share.connect.posit.cloud/"><strong>🚀 Launch the Sen2DINOv3 Demo</strong></a>
+</p>
 
-## Code, weights, and data availability
+## 📦 Code, weights, and data availability
 
-This repository currently provides the project overview, manuscript figures, reported evaluation results, and the live demo link. Training/inference code, pretrained weights, and S12OpenBuilding download instructions will be added here when they are ready for public release.
+This repository currently provides the project overview, manuscript figures, evaluation results, and live demo. Training/inference code, pretrained weights, and S12OpenBuilding download instructions will be added when they are ready for public release.
 
-## Article
+## 📄 Article
 
 **S12OpenBuilding: Global Building Footprint Mapping via Sen2DINOv3, a Parameter-Efficient Adaptation of DINOv3 to Sentinel-2 Imagery**
 
