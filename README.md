@@ -62,13 +62,13 @@ This release includes the supplied **architecture implementations and training u
 
 | Family | Implementation |
 |:--|:--|
-| **Sen2DINOv3 / DINOv3-LoRA** | [`Sen2DINOv3.py`](models/Sen2DINOv3.py) |
+| **Sen2DINOv3** | [`Sen2DINOv3.py`](models/Sen2DINOv3.py) |
 | **DOFA-LoRA** | [`DOFA.py`](models/DOFA.py) |
 | **Panopticon-LoRA** | [`Panopticon.py`](models/Panopticon.py) |
 | **MAE-SSL4EO / MAE-SSL4EO-LoRA** | [MAE](models/MAE_SSL4EO.py) · [MAE + LoRA](models/MAE_SSL4EO_LORA.py) |
 | **DeepLabV3+ / SegFormer / U-Net++** | [DeepLabV3+](models/DeepLabV3Plus.py) · [SegFormer](models/SegFormer.py) · [U-Net++](models/UNetPlusPlus.py) |
 
-The `models/` package also contains shared [spectral adapters](models/adapters.py), [UPerNet components](models/upernet.py), and [Sentinel-2 wavelength metadata](models/wavelengths.py). Nine experiment presets—including the separate 224-pixel DINOv3-LoRA preset—are defined in [`configs.py`](configs.py).
+The `models/` package also contains shared [spectral adapters](models/adapters.py), [UPerNet components](models/upernet.py), and [Sentinel-2 wavelength metadata](models/wavelengths.py). Model and training presets are defined in [`configs.py`](configs.py). The root-level [`experiments.py`](experiments.py) is a setup helper: it loads the chosen backbone, constructs the model, and configures the optimizer, loss, scheduler, and metrics.
 
 <details>
 <summary><strong>Repository layout</strong></summary>
@@ -100,7 +100,7 @@ cd Sen2DINOv3
 pip install -r requirements.txt
 ~~~
 
-**2 · Choose an experiment and train** using your own Sentinel-2 dataloaders:
+**2 · Build Sen2DINOv3 and train** using your own Sentinel-2 dataloaders (this is a usage template, not a standalone script):
 
 ~~~python
 from configs import EXPERIMENTS
@@ -120,7 +120,7 @@ history = train_model(
 )
 ~~~
 
-**Input contract:** images should be `[B, 12, H, W]`; binary masks should be `[B, 1, 224, 224]` for the documented experiments. The configuration's `input_size` describes the image size expected from your loader; training aligns prediction logits to the target mask grid. The Sen2DINOv3 preset uses 512-pixel imagery, while the DINOv3-LoRA preset uses 224-pixel imagery.
+**Input contract:** images should be `[B, 12, H, W]`; binary masks should be `[B, 1, 224, 224]` for the documented experiments. The configuration's `input_size` describes the image size expected from your loader; training aligns prediction logits to the target mask grid. The Sen2DINOv3 preset uses 512-pixel imagery.
 
 > **Before running:** This code does not include a dataset download/preprocessing pipeline, geographic split files, or trained segmentation checkpoints. Backbone weights are loaded via Transformers/TorchGeo and may require network access and appropriate model permissions. The dependency list is not a fully locked CUDA environment.
 
