@@ -43,16 +43,25 @@ The companion dataset is described as **111,709 image patches** across **1,492 r
 
 ## Results
 
-| Architecture | Dice ↑ | IoU ↑ | Recall ↑ |
-|:--|--:|--:|--:|
-| **Sen2DINOv3 (ours)** | **80.37%** | **67.15%** | **84.47%** |
-| Panopticon-LoRA | 77.72% | 63.54% | 82.04% |
-| DOFA-LoRA | 77.31% | 63.02% | 81.39% |
-| U-Net++ | 77.05% | 64.29% | 80.02% |
-| DINOv3-LoRA | 75.12% | 60.16% | 80.27% |
-| MAE-SSL4EO-LoRA | 73.05% | 57.58% | 77.60% |
-| SegFormer | 72.65% | 57.35% | 80.46% |
-| DeepLabV3+ | 61.48% | 44.59% | 62.38% |
+<div align="center">
+
+<table>
+  <thead>
+    <tr><th align="left">Architecture</th><th align="center">Dice ↑</th><th align="center">IoU ↑</th><th align="center">Recall ↑</th></tr>
+  </thead>
+  <tbody>
+    <tr><td align="left"><strong>Sen2DINOv3 (ours)</strong></td><td align="center"><strong>80.37%</strong></td><td align="center"><strong>67.15%</strong></td><td align="center"><strong>84.47%</strong></td></tr>
+    <tr><td align="left">Panopticon-LoRA</td><td align="center">77.72%</td><td align="center">63.54%</td><td align="center">82.04%</td></tr>
+    <tr><td align="left">DOFA-LoRA</td><td align="center">77.31%</td><td align="center">63.02%</td><td align="center">81.39%</td></tr>
+    <tr><td align="left">U-Net++</td><td align="center">77.05%</td><td align="center">64.29%</td><td align="center">80.02%</td></tr>
+    <tr><td align="left">DINOv3-LoRA</td><td align="center">75.12%</td><td align="center">60.16%</td><td align="center">80.27%</td></tr>
+    <tr><td align="left">MAE-SSL4EO-LoRA</td><td align="center">73.05%</td><td align="center">57.58%</td><td align="center">77.60%</td></tr>
+    <tr><td align="left">SegFormer</td><td align="center">72.65%</td><td align="center">57.35%</td><td align="center">80.46%</td></tr>
+    <tr><td align="left">DeepLabV3+</td><td align="center">61.48%</td><td align="center">44.59%</td><td align="center">62.38%</td></tr>
+  </tbody>
+</table>
+
+</div>
 
 <sub>Figures reproduce selected **manuscript-reported** results, not results rerun from this repository. The study does not supply repeated-trial statistics here; interpret model differences accordingly.</sub>
 
@@ -60,13 +69,22 @@ The companion dataset is described as **111,709 image patches** across **1,492 r
 
 This release includes the supplied **architecture implementations and training utilities**—not pretrained model checkpoint files.
 
-| Family | Implementation |
-|:--|:--|
-| **Sen2DINOv3** | [`Sen2DINOv3.py`](models/Sen2DINOv3.py) |
-| **DOFA-LoRA** | [`DOFA.py`](models/DOFA.py) |
-| **Panopticon-LoRA** | [`Panopticon.py`](models/Panopticon.py) |
-| **MAE-SSL4EO / MAE-SSL4EO-LoRA** | [MAE](models/MAE_SSL4EO.py) · [MAE + LoRA](models/MAE_SSL4EO_LORA.py) |
-| **DeepLabV3+ / SegFormer / U-Net++** | [DeepLabV3+](models/DeepLabV3Plus.py) · [SegFormer](models/SegFormer.py) · [U-Net++](models/UNetPlusPlus.py) |
+<div align="center">
+
+<table>
+  <thead>
+    <tr><th align="left">Family</th><th align="center">Implementation</th></tr>
+  </thead>
+  <tbody>
+    <tr><td align="left"><strong>Sen2DINOv3</strong></td><td align="center"><a href="models/Sen2DINOv3.py"><code>Sen2DINOv3.py</code></a></td></tr>
+    <tr><td align="left"><strong>DOFA-LoRA</strong></td><td align="center"><a href="models/DOFA.py"><code>DOFA.py</code></a></td></tr>
+    <tr><td align="left"><strong>Panopticon-LoRA</strong></td><td align="center"><a href="models/Panopticon.py"><code>Panopticon.py</code></a></td></tr>
+    <tr><td align="left"><strong>MAE-SSL4EO / MAE-SSL4EO-LoRA</strong></td><td align="center"><a href="models/MAE_SSL4EO.py">MAE</a> · <a href="models/MAE_SSL4EO_LORA.py">MAE + LoRA</a></td></tr>
+    <tr><td align="left"><strong>DeepLabV3+ / SegFormer / U-Net++</strong></td><td align="center"><a href="models/DeepLabV3Plus.py">DeepLabV3+</a> · <a href="models/SegFormer.py">SegFormer</a> · <a href="models/UNetPlusPlus.py">U-Net++</a></td></tr>
+  </tbody>
+</table>
+
+</div>
 
 The `models/` package also contains shared [spectral adapters](models/adapters.py), [UPerNet components](models/upernet.py), and [Sentinel-2 wavelength metadata](models/wavelengths.py). Model and training presets are defined in [`configs.py`](configs.py). The root-level [`experiments.py`](experiments.py) is a setup helper: it loads the chosen backbone, constructs the model, and configures the optimizer, loss, scheduler, and metrics.
 
@@ -139,7 +157,4 @@ Explore detections by selecting a location and imagery date in the companion app
 
 **S12OpenBuilding: Global Building Footprint Mapping via Sen2DINOv3, a Parameter-Efficient Adaptation of DINOv3 to Sentinel-2 Imagery**
 
-Mehdi Golkar Amoli · Mahdi Hasanlou · Mahdi Panahi · Saeid Homayouni
-
-This repository shares the supplied research implementations for inspection and adaptation. The reported manuscript metrics have **not been independently reproduced** with the files included here. In particular, data preparation and original downstream checkpoint weights are not provided; pretrained backbone weights are separate downloads.
-
+Mehdi Golkar Amoli · Mahdi Hasanlou · Mahdi Panahi
