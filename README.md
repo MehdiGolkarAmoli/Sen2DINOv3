@@ -7,7 +7,8 @@
 **A multispectral DINOv3 adaptation with LoRA and UPerNet**  
 Research code · S12OpenBuilding benchmark · Interactive geospatial demo
 
-[![Explore live demo](https://img.shields.io/badge/Explore-Live%20Demo-16803c?style=for-the-badge)](https://01a1a747-710b-3809-a63e-588361d71177.share.connect.posit.cloud/)
+[![Launch live demo](https://img.shields.io/badge/Launch-Live%20Demo-16803c?style=for-the-badge)](https://01a1b9c6-ffd8-46e3-32ce-b7568075d81c.share.connect.posit.cloud/)
+[![Alternative demo](https://img.shields.io/badge/Try-Alternative%20Demo-2563eb?style=for-the-badge)](https://01a1a747-710b-3809-a63e-588361d71177.share.connect.posit.cloud/)
 ![PyTorch](https://img.shields.io/badge/Framework-PyTorch-ee4c2c?style=for-the-badge)
 ![Satellite imagery](https://img.shields.io/badge/Imagery-Sentinel--2-2563eb?style=for-the-badge)
 
@@ -144,14 +145,24 @@ history = train_model(
 
 ## Interactive demo
 
-Explore detections by selecting a location and imagery date in the companion app.
+Explore building-footprint detections by selecting a location and imagery date in the companion app. Choose either deployment below to try Sen2DINOv3 in your browser.
 
 <p align="center">
-  <a href="https://01a1a747-710b-3809-a63e-588361d71177.share.connect.posit.cloud/">
-    <img src="assets/Demo.png" alt="Interactive Sen2DINOv3 map-based demo" width="90%">
+  <a href="https://01a1b9c6-ffd8-46e3-32ce-b7568075d81c.share.connect.posit.cloud/">
+    <img src="assets/Demo.png" alt="Preview of the interactive Sen2DINOv3 map-based demo" width="90%">
   </a>
-  <br><a href="https://01a1a747-710b-3809-a63e-588361d71177.share.connect.posit.cloud/"><strong>Launch interactive demo</strong></a>
+  <br><sub>Select the screenshot to open the live demo.</sub>
+  <br><br>
+  <a href="https://01a1b9c6-ffd8-46e3-32ce-b7568075d81c.share.connect.posit.cloud/">
+    <img src="https://img.shields.io/badge/🚀_Demo_1-Launch_App-16803c?style=for-the-badge" alt="Launch Demo 1">
+  </a>
+  &nbsp;
+  <a href="https://01a1a747-710b-3809-a63e-588361d71177.share.connect.posit.cloud/">
+    <img src="https://img.shields.io/badge/🌐_Demo_2-Alternative_App-2563eb?style=for-the-badge" alt="Try Demo 2">
+  </a>
 </p>
+
+> **Note on demo availability:** Both demos are hosted on Posit Connect Cloud. Because the free plan has monthly usage limits, one of the deployments may be temporarily unavailable after its quota is reached. If one link does not open, please try the other.
 
 ## Research & attribution
 
