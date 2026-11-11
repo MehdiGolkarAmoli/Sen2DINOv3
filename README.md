@@ -7,8 +7,7 @@
 **A multispectral DINOv3 adaptation with LoRA and UPerNet**  
 Research code · S12OpenBuilding benchmark · Interactive geospatial demo
 
-[![Launch live demo](https://img.shields.io/badge/Launch-Live%20Demo-16803c?style=for-the-badge)](https://01a1b9c6-ffd8-46e3-32ce-b7568075d81c.share.connect.posit.cloud/)
-[![Alternative demo](https://img.shields.io/badge/Try-Alternative%20Demo-2563eb?style=for-the-badge)](https://01a1a747-710b-3809-a63e-588361d71177.share.connect.posit.cloud/)
+[![Launch current demo](https://img.shields.io/badge/Launch-Current%20Demo-16803c?style=for-the-badge)](https://01a1c9af-de96-c0f8-51a8-07262ff0522d.share.connect.posit.cloud/)
 ![PyTorch](https://img.shields.io/badge/Framework-PyTorch-ee4c2c?style=for-the-badge)
 ![Satellite imagery](https://img.shields.io/badge/Imagery-Sentinel--2-2563eb?style=for-the-badge)
 
@@ -145,24 +144,24 @@ history = train_model(
 
 ## Interactive demo
 
-Explore building-footprint detections by selecting a location and imagery date in the companion app. Choose either deployment below to try Sen2DINOv3 in your browser.
+Try the **currently available Sen2DINOv3 demo** directly in your browser:
+
+**[🚀 Launch the Sen2DINOv3 interactive demo](https://01a1c9af-de96-c0f8-51a8-07262ff0522d.share.connect.posit.cloud/)**
+
+The web app lets you select a geographic location and imagery date to explore building-footprint mapping from Sentinel-2 satellite imagery. It provides a convenient way to inspect the model's geospatial predictions without setting up the research code locally.
 
 <p align="center">
-  <a href="https://01a1b9c6-ffd8-46e3-32ce-b7568075d81c.share.connect.posit.cloud/">
+  <a href="https://01a1c9af-de96-c0f8-51a8-07262ff0522d.share.connect.posit.cloud/">
     <img src="assets/Demo.png" alt="Preview of the interactive Sen2DINOv3 map-based demo" width="90%">
   </a>
-  <br><sub>Select the screenshot to open the live demo.</sub>
+  <br><sub>Select the screenshot to open the current demo.</sub>
   <br><br>
-  <a href="https://01a1b9c6-ffd8-46e3-32ce-b7568075d81c.share.connect.posit.cloud/">
-    <img src="https://img.shields.io/badge/🚀_Demo_1-Launch_App-16803c?style=for-the-badge" alt="Launch Demo 1">
-  </a>
-  &nbsp;
-  <a href="https://01a1a747-710b-3809-a63e-588361d71177.share.connect.posit.cloud/">
-    <img src="https://img.shields.io/badge/🌐_Demo_2-Alternative_App-2563eb?style=for-the-badge" alt="Try Demo 2">
+  <a href="https://01a1c9af-de96-c0f8-51a8-07262ff0522d.share.connect.posit.cloud/">
+    <img src="https://img.shields.io/badge/🚀_Current_Demo-Launch_App-16803c?style=for-the-badge" alt="Launch current Sen2DINOv3 demo">
   </a>
 </p>
 
-> **Note on demo availability:** Both demos are hosted on Posit Connect Cloud. Because the free plan has monthly usage limits, one of the deployments may be temporarily unavailable after its quota is reached. If one link does not open, please try the other.
+> **Demo availability:** Two previously shared deployments — [Demo 1](https://01a1b9c6-ffd8-46e3-32ce-b7568075d81c.share.connect.posit.cloud/) and [Demo 2](https://01a1a747-710b-3809-a63e-588361d71177.share.connect.posit.cloud/) — **may have expired or become inactive**. These older links are kept for reference, but the **[current demo](https://01a1c9af-de96-c0f8-51a8-07262ff0522d.share.connect.posit.cloud/)** is now available. Posit Connect Cloud deployments may be subject to hosting or usage limits.
 
 ## Research & attribution
 
